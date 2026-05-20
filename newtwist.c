@@ -104,10 +104,17 @@ main(int argc, char *argv[])
 {
     int		i;
     char	*home, *config_dir;
+    static char *v[] = { "-v", "--verbose" };
 
     progname = argv[0];
     for (i = strlen(progname) - 1; i >= 0 && progname[i] != '/'; --i);
     progname += (i + 1);
+
+    if (argc == 2 && (strcmp(argv[1], v[0]) == 0 || strcmp(argv[1], v[1]) == 0))
+    {
+	printf("%s version %s\n", progname, VERSION);
+	exit(0);
+    }
 
     if ((home = getenv("HOME")) == NULL)
 	errout("HOME environment variable not set");

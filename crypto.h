@@ -1,5 +1,7 @@
 #include <sys/types.h>
 
+#define VERSION		"2.0"
+
 #define KEYLEN          32
 #define IVLEN           16
 
